@@ -1,0 +1,30 @@
+{
+  "name": "ps2-codes-cli",
+  "version": "1.0.0",
+  "description": "PS2 cheat codes converting utility",
+  "bin": "dist/ps2-codes-cli.js",
+  "scripts": {
+    "build": "npx etsc build",
+    "lint": "eslint 'src/**/*.ts'"
+  },
+  "keywords": ["ps2", "cheats", "converting"],
+  "author": "mishamyrt",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "@types/node": "^18.8.3",
+    "@typescript-eslint/eslint-plugin": "^5.39.0",
+    "@typescript-eslint/parser": "^5.39.0",
+    "esbuild": "^0.15.10",
+    "esbuild-node-tsc": "^2.0.4",
+    "eslint": "^8.25.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.3.0",
+    "eslint-plugin-promise": "^6.0.1",
+    "typescript": "^4.8.4"
+  },
+  "dependencies": {
+    "picocolors": "^1.0.0",
+    "ps2-codes": "^1.0.3"
+  }
+}
