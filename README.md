@@ -1,4 +1,4 @@
-# PS Codes CLI [![Quality assurance](https://github.com/mishamyrt/ps2-codes-cli/actions/workflows/qa.yaml/badge.svg)](https://github.com/mishamyrt/ps2-codes-cli/actions/workflows/qa.yaml)
+# PS2 Codes CLI [![Quality assurance](https://github.com/mishamyrt/ps2-codes-cli/actions/workflows/qa.yaml/badge.svg)](https://github.com/mishamyrt/ps2-codes-cli/actions/workflows/qa.yaml)
 
 Utility to convert PS2 cheat codes. Uses [ps2-codes](https://github.com/mishamyrt/ps2-codes) as a backend.
 
