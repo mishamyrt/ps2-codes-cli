@@ -17,7 +17,7 @@ npm install -g ps2-codes-cli@latest
 To convert a file, specify the input and output path and formats.
 
 ```sh
-npx ps2-codes-cli raw SLUS-21361.raw pnach SLUS-21361.pnach
+npx ps2-codes-cli raw SLUS-21361.txt pnach SLUS-21361.pnach
 # The transformation was successful
 # Format: pnach
 # File length: 842
@@ -29,7 +29,7 @@ npx ps2-codes-cli raw SLUS-21361.raw pnach SLUS-21361.pnach
 If you specify only the name of the input file, the utility will display the file information. This is useful if you do not know the code format.
 
 ```sh
-npx ps2-codes-cli 'codes.txt'
+npx ps2-codes-cli codes.txt
 # Format: pnach
 # File length: 346
 # Cheats count: 3
