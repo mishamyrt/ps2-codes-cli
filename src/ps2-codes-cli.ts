@@ -5,6 +5,7 @@ import { die, print } from './console'
 import { formats, assumeFormat, FormatKey } from 'ps2-codes'
 import { avaliableFormats, fileInfo, help } from './templates'
 import { readTextFile } from './fs'
+import { writeFile } from 'fs/promises'
 
 const appName = 'ps2-codes-cli'
 const formatList = Object.keys(formats)
@@ -25,20 +26,27 @@ async function printInfo (filePath: string) {
   )
 }
 
-async function convertFile (filePath: string, input: FormatKey, output: FormatKey) {
-  const content = await readTextFile(filePath)
+async function convertFile (
+  input: FormatKey,
+  inputPath: string,
+  target: FormatKey,
+  targetPath: string
+) {
+  const content = await readTextFile(inputPath)
   const cheats = formats[input].fromString(content)
+  const targetContent = formats[target].toString(cheats)
+  await writeFile(targetPath, targetContent)
   print(
-    formats[output].toString(cheats)
+    fileInfo(target, targetContent.length, cheats.length)
   )
 }
 
 async function main (args: string[]) {
-  if (args.length !== 1 && args.length !== 3) {
+  if (args.length !== 1 && args.length !== 4) {
     print(
       help(appName, formatList)
     )
-    die('Wrong arguments count. Should be 1 or 3')
+    die('Wrong arguments count. Should be 1 or 4')
   }
 
   if (args.length === 1) {
@@ -52,14 +60,14 @@ async function main (args: string[]) {
     )
     die(`Unknown source format '${sourceFormat}'`)
   }
-  const targetFormat = args[1]
+  const targetFormat = args[2]
   if (!isCorrectFormat(targetFormat)) {
     print(
       avaliableFormats(formatList)
     )
     die(`Unknown target format '${targetFormat}'`)
   }
-  await convertFile(args[2], sourceFormat, targetFormat)
+  await convertFile(sourceFormat, args[1], targetFormat, args[3])
 }
 
 main(argv.slice(2))
